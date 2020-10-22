@@ -1,26 +1,32 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import FilterMenu from './components/FilterMenu';
+import TankList from './components/TankList';
+
+const items = [
+  {
+    filter: 'color',
+    menu: [
+      'red', 'green', 'blue'
+    ]
+  },
+  {
+    filter: 'price',
+    menu: [
+      '10', '20', '30'
+    ]
+  }
+]
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <div className='App'>
+      <header className='App-header'>
+        <FilterMenu items={items} />
+        <TankList />
       </header>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

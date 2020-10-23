@@ -13,7 +13,23 @@ const FilterMenu = ({ list }) => {
     useEffect(_ => {
         setFilteredList(
             list.filter(item => {
-                return true
+                let pass = true
+                if (tankType != 'none') {
+                    if (item.type !== tankType) {
+                        pass = false
+                    }
+                }
+                if (tankCountry != 'none') {
+                    if (item.country !== tankCountry) {
+                        pass = false
+                    }
+                }
+                if (tankAmmunition != 'none') {
+                    if (!item.ammunition.includes(tankAmmunition)) {
+                        pass = false
+                    }
+                }
+                return pass
             })
         )
     }, [tankType, tankCountry, tankAmmunition])
